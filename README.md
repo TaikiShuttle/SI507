@@ -1,2 +1,2 @@
 # SI507
-SI 507 offered by UMSI in 22FA
+SI 507 Intermediate Programming offered by UMSI in 22FA.
