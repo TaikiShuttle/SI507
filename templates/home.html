@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>Home</title>
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <!-- h1 at center of page -->
+    <h1 style="text-align: center;">Yelp Restaurant Search in New York City</h1>
+
+    <h3 style="margin-left: 10%">About this project</h3>
+    <p style="margin-left: 10%;">
+    This project uses the <a href="https://docs.developer.yelp.com/">Yelp API</a> to collect 1000 records for restaurants in the New York City area. The data is stored using JSON files.
+    To enable efficient range search and other functions, a KD-Tree is constructed based on the data.
+    </p>
+    <h3 style="margin-left: 10%;">Please select an option in the list to explore.</h3>
+    
+    <!--create an ordered list-->
+    <ol style="margin-left: 10%;">
+        <li><a href="/restaurant_map">View Restaurants in an Interactive Map</a></li>
+        <li><a href="/single_search">Conduct a Single Condition Precise Search</a></li>
+        <li><a href="/range_search">Conduct a Range Search</a></li>
+        <li><a href="/relations">See the Relation between Neighborhood Population and Restaurant Price and Rating</a></li>
+    </ol>
+
+</body>
+
+
+</html>
