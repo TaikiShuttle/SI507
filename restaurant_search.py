@@ -3,6 +3,8 @@ from flask import render_template
 import constructTree
 from flask import request
 import math
+import Node
+import copy
 
 app = Flask(__name__)
 
@@ -20,6 +22,7 @@ def restaurants():
 @app.route('/single_search', methods=['POST', 'GET'])
 def single_search():
     results = None
+    new_results = None
     if request.method == 'POST':
 
         # get the search parameters
@@ -32,19 +35,24 @@ def single_search():
         # get the result
         results = kdtree.single_search(node = kdtree.root, query = query, how = how)
 
+        # deep copy the result, since we need to change it
+        new_results = copy.deepcopy(results)
+
         # modify the price to be None if the price is inf
-        for result in results:
-            if result.price == float('inf'):
+        for result in new_results:
+
+            if result.price == math.inf:
                 result.price = None
 
         if not results:
-            results = []
+            new_results = []
     
-    return render_template('single_search.html', results = results)
+    return render_template('single_search.html', results = new_results)
 
 @app.route('/range_search', methods = ['POST', 'GET'])
 def range_search():
     results = None
+    new_results = None
     if request.method == 'POST':
 
         # get the search parameters
@@ -61,15 +69,18 @@ def range_search():
         # get the result
         results = kdtree.rangeSearch(node = kdtree.root, ranges = [minPopulation, maxPopulation, minRating, maxRating, minPrice, maxPrice, minName, maxName], depth = 0)
 
+        # deep copy the result, since we need to change it
+        new_results = copy.deepcopy(results)
+
         # modify the price to be None if the price is inf
-        for result in results:
-            if result.price == float('inf'):
+        for result in new_results:
+            if result.price == math.inf:
                 result.price = None
 
         if not results:
-            results = []        
+            new_results = []        
 
-    return render_template('range_search.html', results = results)
+    return render_template('range_search.html', results = new_results)
 
 @app.route('/relations')
 def relations():
