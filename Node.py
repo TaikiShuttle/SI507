@@ -11,7 +11,7 @@ class Node:
         self.name = dict_t['name']
         self.price = math.inf
         if "price" in dict_t.keys():
-            self.price = float(len(dict_t["price"]))
+            self.price = float(len(dict_t["price"])) if dict_t["price"] != None else math.inf
         else:
             self.price = math.inf
         
