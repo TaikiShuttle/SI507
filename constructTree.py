@@ -4,8 +4,7 @@ import pop_dict
 
 population_dict = pop_dict.pop_dict
 
-
-if __name__ == "__main__":
+def constructTree():
     # read in the cached data
     f = open("restaurant_info.json")
     restaurant_list = json.loads(f.read())
@@ -17,4 +16,4 @@ if __name__ == "__main__":
     kdtree = Node.KDTree(node_list)
     kdtree.build()
 
-    # then we are able to do some search
+    return kdtree

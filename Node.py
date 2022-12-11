@@ -7,10 +7,11 @@ class Node:
         '''
         # node info
         self.rating = float(dict_t['rating'])
+        self.link = dict_t['url']
         self.name = dict_t['name']
         self.price = math.inf
         if "price" in dict_t.keys():
-            self.price = len(dict_t["price"])
+            self.price = float(len(dict_t["price"]))
         else:
             self.price = math.inf
         
